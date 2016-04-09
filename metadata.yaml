@@ -1,0 +1,69 @@
+_repo: North-and-South_4276
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Gaskell, Elizabeth Cleghorn
+    aliases:
+    - Gaskell, E. C. (Elizabeth Cleghorn)
+    - Stevenson, Elizabeth
+    - Mills, Cotton Mather
+    - Gaskell, Mrs.
+    - Gaskell, Elizabeth Cleghorn Stevenson
+    birthdate: 1810
+    deathdate: 1865
+    gutenberg_agent_id: '220'
+    url: http://www.gutenberg.org/2009/agents/220
+    wikipedia: http://en.wikipedia.org/wiki/Elizabeth_Gaskell
+description: "North and South is a social novel by English writer Elizabeth Gaskell.\
+  \ Along with Wives and Daughters (1865) and Cranford (1853), it is one of her best\
+  \ known novels and has been adapted for television twice, in 1975 and 2004. The\
+  \ latter version renewed interest in the novel and gained it a wider audience.\n\
+  While Gaskell's first novel Mary Barton (1848) focused on relations between employers\
+  \ and workers in Manchester from the perspective of the working poor, North and\
+  \ South uses a protagonist from southern England to present and comment on the perspectives\
+  \ of both mill owners and mill workers.\nNorth and South is set in the fictional\
+  \ industrial town of Milton in the North of England. Forced to leave her home in\
+  \ the tranquil rural south, Margaret Hale settles with her parents in Milton where\
+  \ she witnesses the brutal world wrought by the industrial revolution and employers\
+  \ and workers clashing in the first organised strikes. Sympathetic to the poor whose\
+  \ courage and tenacity she admires and among whom she makes friends, she clashes\
+  \ with John Thornton, a cotton mill manufacturer who belongs to the nouveaux riches\
+  \ and whose contemptuous attitude to workers Margaret despises. The novel traces\
+  \ both her growing understanding of the complexity of labor relations and her impact\
+  \ on some well-meaning mill owners, and the conflicted relationship between Margaret\
+  \ Hale and John Thornton.\nGaskell based her depiction of Milton on Manchester,\
+  \ where she lived as the wife of a Unitarian minister.\n From Wikipedia (CC BY-SA)."
+gutenberg_issued: '2003-07-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '4276'
+  wikidata: Q1853142
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Social classes -- Fiction'
+- !lcsh 'Didactic fiction'
+- !lcsh 'Bildungsromans'
+- !lcsh 'Children of clergy -- Fiction'
+- !lcsh 'Mothers and daughters -- Fiction'
+- !lcc 'PR'
+- !lcsh 'England, Northern -- Fiction'
+- !lcsh 'Young women -- Fiction'
+- GITenberg
+title: North and South
+url: http://www.gutenberg.org/ebooks/4276
+wikipedia:
+- https://fr.wikipedia.org/wiki/Nord_et_Sud_(roman)
+- https://ar.wikipedia.org/wiki/%D8%B4%D9%85%D8%A7%D9%84_%D9%88_%D8%AC%D9%86%D9%88%D8%A8
+- https://nl.wikipedia.org/wiki/North_and_South_(roman)
+- https://pl.wikipedia.org/wiki/P%C3%B3%C5%82noc_Po%C5%82udnie_(powie%C5%9B%C4%87_1854)
+- https://cs.wikipedia.org/wiki/Sever_a_Jih_(Gaskellov%C3%A1)
+- https://de.wikipedia.org/wiki/North_and_South_(Roman)
+- https://es.wikipedia.org/wiki/Norte_y_Sur_(novela_de_1855)
+- https://en.wikiquote.org/wiki/North_and_South_(Gaskell_novel)
+- https://en.wikipedia.org/wiki/North_and_South_(Gaskell_novel)
+- https://it.wikipedia.org/wiki/Nord_e_Sud_(Gaskell)
+- https://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D0%B2%D0%B5%D1%80_%D0%B8_%D0%AE%D0%B3_(%D1%80%D0%BE%D0%BC%D0%B0%D0%BD,_1855)
+- https://he.wikipedia.org/wiki/%D7%A6%D7%A4%D7%95%D7%9F_%D7%95%D7%93%D7%A8%D7%95%D7%9D_(%D7%A8%D7%95%D7%9E%D7%9F,_1854)
