@@ -1,0 +1,59 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+- gem install asciidoctor -v 1.5.2 
+- gem install tilt
+- sudo pip install git+https://github.com/rdhyee/ebooklib.git
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+- asciidoctor -a toc,idprefix=xx_,version=$VERSION -b xhtml5 -T ./asciidoctor-htmlbook/htmlbook-autogen/
+  -d book book.asciidoc -o book.html
+- git clone https://github.com/gitenberg-dev/HTMLBook
+
+# make book.html available to jinja2 environment by putting it into templates
+- cp book.html asciidoctor-htmlbook/gitberg-machine/templates/
+
+- /usr/bin/python asciidoctor-htmlbook/gitberg-machine/machine.py -o . -m metadata.yaml book.html
+- xsltproc -stringparam external.assets.list " " ./HTMLBook/htmlbook-xsl/epub.xsl book.html
+- cp ./HTMLBook/stylesheets/epub/epub.css OEBPS
+- if [ -e cover.jpg ]; then cp cover.jpg OEBPS/cover.jpg; fi
+# look for first images directory and one found, copy over to ./OEBPS
+- find . -name images -type d | head -n 1 | xargs -I {} mv {} ./OEBPS/
+- zip -rX book.epub mimetype
+- zip -rX book.epub OEBPS/ META-INF/
+- if test -d "OEBPS/images/"; then zip -rX book.epub OEBPS/images/ ;fi
+- mv book.epub North-and-South.epub
+- ebook-convert North-and-South.epub North-and-South.mobi
+- xvfb-run ebook-convert North-and-South.epub North-and-South.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: MwF8vhjx2IcHugRDPbAQ1NQPpy9HgD6MSgiINLCqYYYhTR3UhNr99ccVilO/RumRDq8sUiZA3FGfopRzXcUxf7vImL5227aql3Z6P4z/H3HgubWsxGUl5mIahSPcjva44OCyDuhN/GVqlKUS6HGNC6LGZHzbaWOBKg9+HGPKFRz3f9Efxr4oWjUCebkGin8pujuJoSkvs1PIuYUp0rpBJYoqSODMISA+zAs8aM6j6ZxGhaL7UbQjsVAwOCiehr1Fr5rgHDjZARVwPZibLpnI3pga9iDSaSxwc4s2JG6hSjVhp9Yyr1HDr5dV9RIAKc97gS4lgI6ye4y5HfuDhxe4QGU4sFWDW+33Euqxj2rqzfTxxEIrrUhZlvBVgOeUdg6Fl4VMoSSXaF3eH6mIXScsJTIpmZ1P3//H5LCGFqbISEgXFiUzkrfYGCnLibXjtCL+7K6/3ReHfgLO6zlxHh4bslbWE+Bt5gOq3cYnrliqoPOamCbOyQr0EyBVK3/kCRN5OmCUOZyYlVfMKQaUzyXrkKAn6sLrYja4QH6eR7cFJOEOnLmtPs0js8znQ38Fb5Wy3vrqDGrx+cckwfqoSNxTYmRtZ2UXnBgGCGkLWxmsN8LBxZMxNCkCp8F2qcdun/PBQLJvcI3X0av9J0s4wI09rHt1thRSWJ/KGbC8REZQamQ=
+  file:
+    - North-and-South.epub
+    - North-and-South.mobi
+    - North-and-South.pdf
+  "on":
+    repo: GITenberg/North-and-South_4276
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
